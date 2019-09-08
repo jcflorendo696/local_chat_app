@@ -15,10 +15,19 @@ btn.addEventListener('click', function(){
         message: message.value,
         handle: handle.value
     });
+
+    document.getElementById('message').value = "";
 });
 
 message.addEventListener('keypress', () =>{
-    socket.emit('typing', handle.value);
+
+    if(message.value === ""){
+        console.log('wala');
+    }else{
+        
+        socket.emit('typing', handle.value);
+    }
+    
 });
 
 
